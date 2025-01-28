@@ -1,0 +1,27 @@
+
+/* Define los estilos de la barra de navegación */
+.bgGradient {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 6px rgba(241, 241, 241, 0.3);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(10, 10, 10, 0.055);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+
+.navLink {
+  transition: all 0.5s ease !important;
+  letter-spacing: 2px !important;
+  margin-left: 1rem !important;
+}
+
+.hoverLink:hover {
+  background: rgba(134, 218, 233, 0.1) !important;
+  border-radius: 5px !important;
+  padding: 5px 10px !important;
+}
+
+.navbarBrand {
+  font-size: 1.2rem !important;
+  letter-spacing: 5px !important;
+}

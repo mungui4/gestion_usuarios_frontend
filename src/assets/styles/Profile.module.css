@@ -1,0 +1,68 @@
+/* Define los estilos de la vista Profile */
+.profileContainer {
+  background: radial-gradient(circle, #8e44ad, #2c3e50) !important;
+  color: #ecf0f1 !important;
+  padding: 25px !important;
+  border-radius: 15px !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+.profileHeader {
+  display: grid !important;
+  place-items: center !important;
+}
+
+.profileImage {
+  width: 110px !important;
+  height: 110px !important;
+  border-radius: 50% !important;
+  border: 3px solid #ffffff !important;
+}
+
+.profileName {
+  font-size: 1.7rem !important;
+  color: #f1c40f !important;
+}
+
+.profileRole {
+  font-size: 1.1rem !important;
+  color: #ecf0f1 !important;
+}
+
+.infoItem {
+  margin: 10px 0 !important;
+  padding: 10px !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  border-radius: 5px !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.editButton {
+  background-color: rgba(255, 255, 255, 0.6) !important;
+  margin-top: 15px !important;
+  margin-inline: auto !important;
+  border-radius: 15px !important;
+  color: rgb(43, 40, 40) !important;
+  font-size: 15px !important;
+  padding: 10px !important;
+  border: none !important;
+  cursor: pointer !important;
+  font-weight: bold !important;
+  width: 50% !important;
+  transition: background-color 0.3s ease !important;
+}
+
+.editButton:hover {
+  background-color: rgb(255, 255, 255) !important;
+  color: rgb(0, 0, 0) !important;
+}
+
+.loading {
+  color: rgb(65, 231, 74) !important;
+  font-size: 1.2rem;
+}
+
+.error {
+  color: rgb(250, 11, 11) !important;
+  font-size: 1rem;
+}

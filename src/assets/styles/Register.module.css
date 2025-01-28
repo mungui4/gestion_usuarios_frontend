@@ -1,0 +1,95 @@
+/* Define los estilos para Register y Update */
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50% !important;
+  }
+
+  50% {
+    background-position: 100% 50% !important;
+  }
+
+  100% {
+    background-position: 0% 50% !important;
+  }
+}
+
+.formCustom {
+  background: linear-gradient(rgba(88, 243, 86, 0.486), rgba(125, 211, 207, 0.603)) !important;
+  display: grid !important;
+  padding: 50px !important;
+  border-radius: 25px !important;
+  backdrop-filter: blur(10px) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
+  font-size: 1.5rem !important;
+}
+
+
+.formCustom:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+.title {
+  font-size: 2.2rem !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+  text-align: center !important;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2) !important;
+  margin-bottom: 20px !important;
+}
+
+.input {
+  border: 2px solid transparent !important;
+  border-radius: 8px !important;
+  padding: 10px !important;
+  transition: all 0.3s ease !important;
+  background: #f9f9f9 !important;
+  box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.05) !important;
+}
+
+.input:focus {
+  border-color: #2828351e !important;
+  background: #ffffff !important;
+  box-shadow: 0 0 10px rgba(108, 99, 255, 0.5) !important;
+  outline: none !important;
+}
+
+.button {
+  background-color: rgba(255, 255, 255, 0.6) !important;
+  margin-top: 15px !important;
+  margin-inline: auto !important;
+  border-radius: 15px !important;
+  color: rgb(43, 40, 40) !important;
+  font-size: 15px !important;
+  padding: 10px !important;
+  border: none !important;
+  cursor: pointer !important;
+  font-weight: bold !important;
+  width: 80% !important;
+  transition: background-color 0.3s ease !important;
+}
+
+.button:hover {
+  background-color: rgba(47, 90, 139, 0.5) !important;
+  color: white !important;
+}
+
+.label {
+  font-weight: 600 !important;
+  color: #000000a1 !important;
+  margin-bottom: 5px !important;
+  display: inline-block !important;
+}
+
+/* Efecto sutil para el botón al hacer clic */
+.button:active {
+  transform: scale(0.95) !important;
+  box-shadow: 0 4px 8px rgba(255, 117, 140, 0.2) !important;
+}
+
+.pCustom {
+  color: rgba(41, 30, 30, 0.685);
+  font-size: 0.9rem;
+  margin: 0;
+}
