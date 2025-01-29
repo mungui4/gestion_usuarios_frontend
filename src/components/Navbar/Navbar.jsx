@@ -49,7 +49,7 @@ export const Navbar = () => { //Componete Navabar
                 </Link></>) : ""}
               </li>
               <li className="nav-item">
-                {role == "admin" && token ? (<><Link to="#" className={`nav-link ${styles.navLink} ${styles.hoverLink}`} type="button">
+                {role == "admin" && token ? (<><Link to="/statistics" className={`nav-link ${styles.navLink} ${styles.hoverLink}`} type="button">
                   <StatisticsIcon /> Estadísticas
                 </Link></>) : ""}
               </li>
