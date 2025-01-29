@@ -3,17 +3,17 @@ import { TokenContext } from '../../context/TokenContext';
 import { useState } from "react";
 import { fetchUsersByDates, deleteUser } from "../../services/usersService";
 
-function Stadistics() {
+function Statistics() {
 
-    const { token } = useContext(TokenContext);
+    const { token } = useContext(TokenContext); //Obtiene el token del contexto
 
     const currentYear = new Date().getFullYear();
     const [users, setUsers] = useState([]);
-    const [date1, setDate1] = useState(currentYear + "-01-01");
-    const [date2, setDate2] = useState(currentYear + "-01-31");
+    const [date1, setDate1] = useState(currentYear + "-01-01"); //Establece la fecha de inicio
+    const [date2, setDate2] = useState(currentYear + "-01-31"); //Establece la fecha de fin
 
-    const handleSubmit = async (e) => {
-        if (e && e.preventDefault) e.preventDefault();
+    const handleSubmit = async (e) => { //Envia la solicitud para obtener los datos
+        if (e && e.preventDefault) e.preventDefault(); //Evita la recarga de la página
         if (!date1 || !date2) {
             alert("Por favor selecciona ambas fechas");
             return;
@@ -21,7 +21,7 @@ function Stadistics() {
 
         try {
             const response = await fetchUsersByDates(date1, date2, token);
-            setUsers(response.data);
+            setUsers(response.data); //Establece los usuarios obtenidos
         } catch (error) {
             console.error("Error al obtener los usuarios:", error);
         }
@@ -29,15 +29,15 @@ function Stadistics() {
 
     const handleDelete = async (id) => {
         try {
-            await deleteUser(id, token);
-            await handleSubmit();
+            await deleteUser(id, token); //Envia la solicitud para eliminar el usuario
+            await handleSubmit(); // Actualiza la lista de usuarios
         } catch (error) {
             console.error("Error al eliminar el usuario:", error);
         }
     }
 
     useEffect(() => {
-        handleSubmit();
+        handleSubmit(); //Obtiene los datos al cargar la página
     }, []);
 
     return (
@@ -101,4 +101,4 @@ function Stadistics() {
     )
 }
 
-export default Stadistics
+export default Statistics

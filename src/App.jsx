@@ -6,7 +6,7 @@ import { Login } from './pages/login/Login';
 import { Profile } from './pages/profile/Profile';
 import { Update } from './pages/update/Update';
 import { TokenProvider } from './context/TokenContext';
-import Stadistics from './pages/statistics/Statistics';
+import Statistics from './pages/statistics/Statistics';
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/update/:id" element={<Update />} />
-          <Route path="/statistics" element={<Stadistics/>} />
+          <Route path="/statistics" element={<Statistics/>} />
         </Routes>
       </div>
       </TokenProvider>
