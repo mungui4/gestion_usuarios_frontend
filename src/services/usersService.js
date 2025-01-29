@@ -51,7 +51,7 @@ export const registerUser = async (userData) => { //Solicitud para registrar un 
       throw new Error(errorData.error || 'Hubo un problema al registrar el usuario');
     }
   } catch (error) {
-    throw new Error('Hubo un error en la solicitud');
+    throw new Error('Hubo un error en la solicitud:', error);
   }
 };
 
@@ -64,6 +64,7 @@ export const updateUser = async (id, userData, token) => { //Solicitud para actu
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`,
+        'Accept': 'application/json',
       },
       body: JSON.stringify(userData),
     });
@@ -76,6 +77,44 @@ export const updateUser = async (id, userData, token) => { //Solicitud para actu
       throw new Error(errorData.error || 'Hubo un problema al actualizar el usuario');
     }
   } catch (error) {
-    throw new Error('Hubo un error en la solicitud');
+    throw new Error('Hubo un error en la solicitud:', error);
+  };
+};
+
+export const deleteUser = async (id, token) => { //Solicitud para eliminar un usuario
+  try {
+    const response = await fetch(`http://127.0.0.1:8000/api/delete/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+        'Accept': 'application/json',
+      },
+    });
+  } catch (error) {
+    throw new Error('Hubo un error en la solicitud:', error);
+  }
+}
+
+export const fetchUsersByDates = async (date1, date2, token) => {
+  const url = `http://127.0.0.1:8000/api/users/by-dates?date1=${date1}&date2=${date2}`;
+
+  try {
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+      },
+    });
+    if (!response.ok) {
+      throw new Error("Error al obtener los datos");
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Hubo un error en la solicitud:", error);
   }
 };
+
+
