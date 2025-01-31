@@ -4,10 +4,22 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import styles from "../../assets/styles/Register.module.css";
 import { registerUser } from '../../services/usersService';
+import { useContext, useEffect } from 'react';
+import { TokenContext } from '../../context/TokenContext';
+import { useNavigate } from 'react-router-dom';
 
 export const Register = () => { //Registros de usuarios (solo para rol "user")
   const { register, handleSubmit, formState: { errors }, watch, reset } = useForm(); //Manejo de form
   const [error, setError] = useState(null);
+  const { token } = useContext(TokenContext);
+  const navigate = useNavigate();
+
+  useEffect(() => { //Redirecciona al peril si ya ha iniciado sesión
+    if (token) {
+      navigate('/profile');
+      return;
+    }
+  }, []);
 
   const onSubmitForm = async (data) => { 
     try {

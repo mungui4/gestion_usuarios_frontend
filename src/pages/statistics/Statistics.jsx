@@ -55,7 +55,7 @@ function Statistics() {
     useEffect(() => {
         const fetchInitialData = async () => {
 
-            if (role !=="admin") {
+            if (role !=="admin") { //Redirecciona al peril si no es administrador
                 navigate('/profile');
                 return;
               }

@@ -1,17 +1,23 @@
 import React from 'react';
 import styles from "../../assets/styles/Register.module.css";
 import { useForm } from 'react-hook-form';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { TokenContext } from '../../context/TokenContext';
 import { useNavigate } from 'react-router-dom';
 import { login } from '../../services/authService';
 
 export const Login = () => { //Establece la vista de login
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
-  const { setToken } = useContext(TokenContext);
+  const { setToken, token } = useContext(TokenContext);
   const { setRole } = useContext(TokenContext);
-
   const navigate = useNavigate();
+
+  useEffect(() => { //Redirecciona al peril si ya ha iniciado sesión
+  if (token) {
+    navigate('/profile');
+    return;
+  }
+}, []);
 
   const onSubmitForm = async (data) => { //Envío de los datos de form
     const { email, password } = data;
@@ -27,7 +33,7 @@ export const Login = () => { //Establece la vista de login
       alert(error);
     }
   };
-
+  
   return (
     <div className={`container-fluid mt-5 ${styles.containerCustom}`}>
       <form
