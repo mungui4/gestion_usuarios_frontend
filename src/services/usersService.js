@@ -97,7 +97,7 @@ export const deleteUser = async (id, token) => { //Solicitud para eliminar un us
 }
 
 export const fetchUsersByDates = async (date1, date2, token) => { //Solicitud para obtener los usuarios registrados en un rango de fechas
-  const url = `http://127.0.0.1:8000/api/users/by-dates?git lodate1=${date1}&date2=${date2}`;
+  const url = `http://127.0.0.1:8000/api/users/by-dates?date1=${date1}&date2=${date2}`;
 
   try {
     const response = await fetch(url, {
