@@ -1,11 +1,14 @@
 import { useContext, useEffect } from "react";
 import { TokenContext } from '../../context/TokenContext';
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import { fetchUsersByDates, deleteUser } from "../../services/usersService";
 import styles from "../../assets/styles/Statistics.module.css";
 
 function Statistics() {
     const { token } = useContext(TokenContext);
+     const { role} = useContext(TokenContext);
+     const navigate = useNavigate();
     const currentYear = new Date().getFullYear();
     const [users, setUsers] = useState([]);
     const [date1, setDate1] = useState(currentYear + "-01-01");
@@ -51,6 +54,11 @@ function Statistics() {
 
     useEffect(() => {
         const fetchInitialData = async () => {
+
+            if (role !=="admin") {
+                navigate('/profile');
+                return;
+              }
             try {
                 const response = await fetchUsersByDates(date1, date2, token);
                 setUsers(response.data);
